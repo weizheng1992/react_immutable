@@ -1,0 +1,1 @@
+export const SAVE_DETAIL_INFO = 'SAVE_DETAIL_INFO';
