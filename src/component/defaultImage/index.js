@@ -3,7 +3,7 @@ export default class DefaultImage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      src: this.props.src ? this.props.src : require("../../img/Bitmap.png"),
+      src: this.props.src ? this.props.src : require("../../img/default.png"),
       loading: true
     };
   }
@@ -19,7 +19,7 @@ export default class DefaultImage extends React.Component {
   handleImageErrored() {
     //加载失败
     this.setState({
-      src: require("../../img/Bitmap.png"),
+      src: require("../../img/default.png"),
       loading: false
     });
   }

@@ -3,8 +3,9 @@ import { Route } from "react-router-dom";
 import asyncComponent from "../until/AsyncComponent";
 
 const Home = asyncComponent(() =>
-  import(/* webpackChunkName: "home" */ "../pages/home")
+  import(/* webpackChunkName: "details" */ "../containers/HomeContainer")
 );
+// import(/* webpackChunkName: "home" */ "../pages/home")
 
 const Details = asyncComponent(() =>
   import(/* webpackChunkName: "details" */ "../pages/details")

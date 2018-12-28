@@ -3,11 +3,23 @@ import { Link } from "react-router-dom";
 import SwipeableViews from "react-swipeable-views";
 import { autoPlay, virtualize } from "react-swipeable-views-utils";
 import { mod } from "react-swipeable-views-core";
+import DefaultImage from "../../component/defaultImage";
+const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 export default class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(this.props);
+    const { homeActions } = this.props;
+    homeActions.requestInfo();
+  }
+
   slideRenderer = params => {
     const { index, key } = params;
-    console.log(mod(index, 3));
+    // console.log(mod(index, 3));
     switch (mod(index, 3)) {
       case 0:
         return (
@@ -31,7 +43,55 @@ export default class Home extends React.Component {
     }
   };
 
+  categorySlideRenderer = (params, entries) => {
+    const { index, key } = params;
+    switch (mod(index, 2)) {
+      case 0:
+        let list = [];
+        for (let i = 0; i < 10; i++) {
+          list.push(
+            <a className={styles.categorySwiperItem} key={i}>
+              <div className={styles.container}>
+                <DefaultImage
+                  src={entries.length > i ? entries[i].image : ""}
+                />
+              </div>
+              <p>{entries.length > i ? entries[i].name : ""}</p>
+            </a>
+          );
+        }
+        return (
+          <div className={styles.categorySwiper} key={key}>
+            {list}
+          </div>
+        );
+
+      case 1:
+        let list2 = [];
+        for (let i = 10; i < 20; i++) {
+          list2.push(
+            <a className={styles.categorySwiperItem} key={i}>
+              <div className={styles.container}>
+                <DefaultImage
+                  src={entries.length > i ? entries[i].image : ""}
+                />
+              </div>
+              <p>{entries.length > i ? entries[i].name : ""}</p>
+            </a>
+          );
+        }
+        return (
+          <div className={styles.categorySwiper} key={key}>
+            {list2}
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
   render() {
+    const { entries } = this.props.home;
     return (
       <div>
         <header>
@@ -39,6 +99,9 @@ export default class Home extends React.Component {
             <a>搜索饿了么商家、商品名称</a>
           </div>
         </header>
+        <VirtualizeSwipeableViews
+          slideRenderer={params => this.categorySlideRenderer(params, entries)}
+        />
         <div className={styles.banner}>
           <AutoPlaySwipeableViews
             interval={5000}

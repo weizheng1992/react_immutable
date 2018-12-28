@@ -5,12 +5,12 @@ import App from "./config/router";
 // import 'nprogress/nprogress.css'
 import "./index.css";
 import weChat from "./until/weChat";
-import store from "./store";
+import configureStore from "./store";
 import moment from "moment";
 import momentLocale from "moment/locale/zh-cn";
 import { APIgetWechatUser } from "./config/api";
 import storage from "./until/storage";
-
+import rootSaga from './sagas/index';
 moment.updateLocale("zh-cn", momentLocale);
 weChat.init();
 
@@ -25,6 +25,9 @@ if (!user) {
   }
 }
 
+
+const store = configureStore();
+store.runSaga(rootSaga);
 const Index = () => (
   <Provider store={store}>
     <Router>

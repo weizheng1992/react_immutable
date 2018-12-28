@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import detial from './detial';
+import home from './home';
 
 const rootReducer = combineReducers({
-    detial,
+    home,
 });
 
 export default rootReducer;
