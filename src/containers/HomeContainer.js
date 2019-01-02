@@ -12,7 +12,8 @@ class HomeContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const { home } = state;
+  // console.log(state);
+  const { home } = state.toJS();
   return {
     home
   };

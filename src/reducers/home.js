@@ -1,24 +1,20 @@
-import * as types from '../constants/ActionTypes';
+import * as types from "../constants/ActionTypes";
 
-
-const initialState = {
+import { createReducer } from "redux-immutablejs";
+import Immutable from "immutable";
+const initialState = Immutable.fromJS({
   loading: false,
-  entries:[]
-  };
+  entries: []
+});
 
-  export default function category(state = initialState, action) {
-
-    switch (action.type) {
-      case types.FETCH_DETAIL_INFO:
-        return Object.assign({}, state, {
-          loading: true
-        });
-      case types.RECEIVE_DETAIL_INFO:
-        return Object.assign({}, state, {
-          loading: false,
-          entries: action.entries
-        });
-      default:
-        return state;
-    }
-  }
+export default createReducer(initialState, {
+  [types.FETCH_DETAIL_INFO]: state =>
+    state.merge({
+      loading: true
+    }),
+  [types.RECEIVE_DETAIL_INFO]: (state, action) =>
+    state.merge({
+      loading: false,
+      entries: action.entries
+    })
+});

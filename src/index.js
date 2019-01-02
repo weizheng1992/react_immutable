@@ -1,6 +1,5 @@
 import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
 import App from "./config/router";
 // import 'nprogress/nprogress.css'
 import "./index.css";
@@ -11,6 +10,7 @@ import momentLocale from "moment/locale/zh-cn";
 import { APIgetWechatUser } from "./config/api";
 import storage from "./until/storage";
 import rootSaga from './sagas/index';
+import Immutable from 'immutable';
 moment.updateLocale("zh-cn", momentLocale);
 weChat.init();
 
@@ -25,8 +25,8 @@ if (!user) {
   }
 }
 
-
-const store = configureStore();
+const state = Immutable.fromJS({});
+const store = configureStore(state);
 store.runSaga(rootSaga);
 const Index = () => (
   <Provider store={store}>
