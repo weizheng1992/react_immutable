@@ -13,5 +13,6 @@ let mock=0;
 
 
 export const HOME={
-    entries:postApi("/shopping/v2/entries", mock)
+    entries:postApi("/shopping/v2/entries", mock),
+    recommend:postApi("/shopping/v2/recommend", mock)
 }

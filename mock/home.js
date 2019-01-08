@@ -39,3 +39,32 @@ Mock.mock(/\/shopping\/v2\/entries.mock/, {
   message: "",
   systemDate: new Date().getTime()
 });
+
+
+Mock.mock(/\/shopping\/v2\/recommend.mock/,{
+  code:1000,
+  data:{
+    "list":[
+      {
+        "id": 1,
+        "name":"限量抢购",
+        "description":"超值美味 9.9元起",
+        "third_title":"4192人",
+        "name_color":'#e81919',
+        "third_color":'#e81919',
+        "third_desc":'正在抢 >',
+        "img":'https://fuss10.elemecdn.com/d/d4/16ff085900d62b8d60fa7e9c6b65dpng.png?imageMogr/format/webp/thumbnail/!240x160r/gravity/Center/crop/240x160/'
+      }, {
+        "id": 2,
+        "name":"品质套餐",
+        "description":"搭配齐全吃得好",
+        "third_title":"立即抢购 >",
+        "name_color":'',
+        "third_color":'#af8260',
+        "third_desc":'',
+        "img":'https://fuss10.elemecdn.com/b/e1/0fa0ed514c093a7138b0b9a50d61fpng.png?imageMogr/format/webp/thumbnail/!240x160r/gravity/Center/crop/240x160/'
+      }
+
+    ]
+  }
+})

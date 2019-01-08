@@ -21,6 +21,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
+    "react-immutable-render-mixin": "^0.9.7",
     "react-lazyload": "^2.3.0",
     "react-redux": "^5.1.0",
     "react-swipeable-views": "^0.13.0",

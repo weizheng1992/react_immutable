@@ -4,11 +4,17 @@ import SwipeableViews from "react-swipeable-views";
 import { autoPlay, virtualize } from "react-swipeable-views-utils";
 import { mod } from "react-swipeable-views-core";
 import DefaultImage from "../../component/defaultImage";
+import { shouldComponentUpdate } from "react-immutable-render-mixin";
+import { Map } from "immutable";
 const VirtualizeSwipeableViews = virtualize(SwipeableViews);
 const AutoPlaySwipeableViews = autoPlay(virtualize(SwipeableViews));
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.shouldComponentUpdate = shouldComponentUpdate.bind(this);
+    this.state = {
+      index: Map({ index: 0 })
+    };
   }
 
   componentDidMount() {
@@ -89,9 +95,16 @@ export default class Home extends React.Component {
         return null;
     }
   };
+  onChangeEntries = index => {
+    this.setState({
+      index: this.state.index.update("index", () => parseInt(mod(index, 2)))
+    });
+  };
 
   render() {
-    const { entries } = this.props.home;
+    console.log(this.props);
+    const { entries, recommend } = this.props.home;
+    const { index } = this.state;
     return (
       <div>
         <header>
@@ -99,9 +112,45 @@ export default class Home extends React.Component {
             <a>搜索饿了么商家、商品名称</a>
           </div>
         </header>
-        <VirtualizeSwipeableViews
-          slideRenderer={params => this.categorySlideRenderer(params, entries)}
-        />
+        <div className={styles.entries}>
+          <VirtualizeSwipeableViews
+            onChangeIndex={this.onChangeEntries}
+            slideRenderer={params =>
+              this.categorySlideRenderer(params, entries)
+            }
+          />
+          <div className={styles.pagination}>
+            <span
+              className={`${styles.page} ${
+                index.get("index") == 0 ? styles.select : null
+              }`}
+            />
+            <span
+              className={`${styles.page} ${
+                index.get("index") == 1 ? styles.select : null
+              }`}
+            />
+          </div>
+        </div>
+
+        <div className={styles.index}>
+          <div className={`${styles.activity} ${styles.flex}`}>
+            {recommend.map((item, i) => (
+              <div
+                className={`${styles.flex1} ${styles.activityItem}`}
+                key={item.id}
+              >
+                <h3>{item.name}</h3>
+                <div className={styles.desc}>{item.description}</div>
+                <div className={styles.thridTitle}>
+                  {item.third_title}
+                  {item.third_desc}
+                </div>
+                <img src={item.img} />
+              </div>
+            ))}
+          </div>
+        </div>
         <div className={styles.banner}>
           <AutoPlaySwipeableViews
             interval={5000}

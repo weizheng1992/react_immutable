@@ -4,7 +4,8 @@ import { createReducer } from "redux-immutablejs";
 import Immutable from "immutable";
 const initialState = Immutable.fromJS({
   loading: false,
-  entries: []
+  entries: [],
+  recommend: []
 });
 
 export default createReducer(initialState, {
@@ -16,5 +17,10 @@ export default createReducer(initialState, {
     state.merge({
       loading: false,
       entries: action.entries
+    }),
+  [types.RECEIVE_RECOMMEND_INFO]: (state, action) =>
+    state.merge({
+      loading: false,
+      recommend: action.recommend
     })
 });
