@@ -25,3 +25,9 @@ export function receiveRecommendInfo(recommend) {
     recommend
   };
 }
+export function receiveBannersInfo(banners) {
+  return {
+    type: types.RECEIVE_BANNERS_INFO,
+    banners
+  };
+}

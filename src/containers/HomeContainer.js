@@ -12,12 +12,12 @@ class HomeContainer extends React.Component {
 }
 
 const mapStateToProps = state => {
-  const home = state.get("home");
   return {
     home: {
       loading: state.getIn(["home", "loading"]),
       entries: state.getIn(["home", "entries"]),
-      recommend: state.getIn(["home", "recommend"])
+      recommend: state.getIn(["home", "recommend"]),
+      banners: state.getIn(["home", "banners"])
     }
   };
 };

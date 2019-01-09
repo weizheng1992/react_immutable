@@ -1,7 +1,7 @@
 import { put, take, call, fork } from "redux-saga/effects";
 import * as types from "../constants/ActionTypes";
 import toast from "../component/toast";
-import { fetchInfo, receiveInfo, receiveRecommendInfo } from "../actions/home";
+import { fetchInfo, receiveInfo, receiveRecommendInfo,receiveBannersInfo } from "../actions/home";
 import { HOME } from "../constants/apiUrl";
 import axios from "../until/axios";
 import { fromJS } from "immutable";
@@ -35,10 +35,25 @@ export function* requestRecommend() {
   }
 }
 
+export function* requestBanners() {
+  try {
+    const list = yield call(axios.get, HOME.banners);
+    yield put(receiveBannersInfo(list.data.list));
+    const errorMessage = list.message;
+    if (errorMessage && errorMessage !== "") {
+      yield toast(errorMessage);
+    }
+  } catch (error) {
+    yield put(receiveBannersInfo(fromJS([])));
+    yield toast("网络发生错误，请重试");
+  }
+}
+
 export function* watchRequestTypeList() {
   while (true) {
     yield take(types.REQUEST_DETAIL_INFO);
     yield fork(requestTypeList);
     yield fork(requestRecommend);
+    yield fork(requestBanners);
   }
 }
