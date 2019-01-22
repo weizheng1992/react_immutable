@@ -122,7 +122,7 @@ Mock.mock(/\/shopping\/v2\/restaurants.mock/, {
         "id|+1": 1,
         name: "@ctitle",
         image: "@image('130x130')",
-        "rating|1-5.1": 1,
+        "rating|1-4.1": 1,
         "recent_order_num|1-2000": 1,
         "float_minimum_order_amount|0-50": 1,
         "float_delivery_fee|0-10": 1,

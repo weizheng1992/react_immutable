@@ -178,13 +178,13 @@ export default class Home extends React.Component {
                     {item.supports.map((sup, l) => (
                       <div
                         className={styles.indexActRow}
-                        style={item.activities.length>1?{ display: "none" }:null}
+                        style={item.activities.length>1||(item.activities.length<2&&l>1) ?{ display: "none" }:null}
                         key={l}
                       >
                         <span className={styles.indexIconWrap}>
                           <span
                             className={styles.indexIcon}
-                            style={{ backgroundColor: " rgb(240, 115, 115)" }}
+                            style={{ backgroundColor:  `#${sup.icon_color}`}}
                           >
                             {sup.icon_name}
                           </span>
