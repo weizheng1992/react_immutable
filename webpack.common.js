@@ -149,6 +149,6 @@ module.exports = {
     new PurifyCssWebpack({
       paths: glob.sync(path.join(__dirname, "src/*.html"))
     }),
-    new CopyWebpackPlugin([{ from: "logo.png" }])
+    new CopyWebpackPlugin([{ from: "logo.png" },{ from: "Snipaste_2019-01-22_10-24-54.png" }])
   ]
 };
