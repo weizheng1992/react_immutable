@@ -111,7 +111,7 @@ export default class Home extends React.Component {
                     <div className={styles.indexTimedistanceWrap}>
                       <span className={styles.indexDistanceWrap}>
                         {item.distance > 1000
-                          ? `${item.distance / 1000}km`
+                          ? `${(item.distance / 1000).toFixed(2)}km`
                           : `${item.distance}m`}
                       </span>
                       <span>{item.order_lead_time}分钟</span>
@@ -178,7 +178,7 @@ export default class Home extends React.Component {
                     {item.supports.map((sup, l) => (
                       <div
                         className={styles.indexActRow}
-                        style={{ display: "none" }}
+                        style={item.activities.length>1?{ display: "none" }:null}
                         key={l}
                       >
                         <span className={styles.indexIconWrap}>
@@ -196,7 +196,7 @@ export default class Home extends React.Component {
                     ))}
                   </div>
                   <div className={styles.indexActivityBtn}>
-                    <span>4个活动</span>
+                    <span>{item.activities.length+item.supports.length}个活动</span>
                     <img src={require("../../img/activityArrow.svg")} />
                   </div>
                 </section>
