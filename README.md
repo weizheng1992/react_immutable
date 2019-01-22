@@ -14,4 +14,4 @@ yarn(or npm) start
 ```
 ### 项目图片
 
-![image](<img src="https://github.com/weizheng1992/react_eleme/blob/master/Snipaste_2019-01-22_10-24-54.png" width="200"  alt=""/>)
+<img src="https://github.com/weizheng1992/react_eleme/blob/master/Snipaste_2019-01-22_10-24-54.png" width="200"  alt=""/>
