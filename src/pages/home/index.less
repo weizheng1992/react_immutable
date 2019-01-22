@@ -136,9 +136,9 @@ header {
       }
     }
   }
-  .banner{
+  .banner {
     position: relative;
-    .bannerPage{
+    .bannerPage {
       position: absolute;
       bottom: 0;
       width: 100%;
@@ -164,4 +164,100 @@ header {
       background-color: #00a6ff;
     }
   }
+}
+
+.shopListTitle {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 0.96rem;
+  height: 9.6vw;
+  font-size: 0.4rem;
+  color: #000;
+  &::after {
+    display: block;
+    content: "";
+    width: 0.533333rem;
+    width: 5.333333vw;
+    height: 0.026667rem;
+    height: 0.266667vw;
+    background-color: #999;
+    margin-left: 0.346667rem;
+    margin-left: 3.466667vw;
+  }
+  &::before {
+    display: block;
+    content: "";
+    width: 0.533333rem;
+    width: 5.333333vw;
+    height: 0.026667rem;
+    height: 0.266667vw;
+    background-color: #999;
+    margin-right: 0.346667rem;
+    margin-right: 3.466667vw;
+  }
+}
+.svg {
+  // background: url("../../img/fifter.svg") no-repeat;
+  background-size: 100%;
+  width: 0.346667rem;
+  width: 3.466667vw;
+  height: 0.346667rem;
+  height: 3.466667vw;
+  fill: #666;
+}
+.fifter {
+  position: relative;
+  border-bottom: 1px solid #ddd;
+  line-height: 1.04rem;
+  line-height: 10.4vw;
+  z-index: 101;
+  height: 1.066667rem;
+  height: 10.666667vw;
+  .fifterTabs {
+    .tab {
+      text-align: center;
+      color: #666;
+      position: relative;
+      font-size: 0.373333rem;
+      z-index: 101;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}
+.dropDown {
+  width: 0.16rem;
+  width: 1.6vw;
+  height: 0.15rem;
+  height: 1.5vw;
+  margin-left: 0.133333rem;
+  margin-left: 1.333333vw;
+  margin-bottom: 0.053333rem;
+  margin-bottom: 0.533333vw;
+  fill: #333;
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.fifterIcon{
+  margin-left: .053333rem;
+  margin-left: .533333vw;
+  width: .346667rem;
+  width: 3.466667vw;
+  height: .346667rem;
+  height: 3.466667vw;
+  fill: #666;
 }

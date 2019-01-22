@@ -1,6 +1,7 @@
 import styles from "./index.less";
 import { Link } from "react-router-dom";
 import { mod } from "react-swipeable-views-core";
+import IconSvg from "../../component/iconSvg";
 import DefaultImage from "../../component/defaultImage";
 import { shouldComponentUpdate } from "react-immutable-render-mixin";
 import Entries from "./Entries";
@@ -30,7 +31,25 @@ export default class Home extends React.Component {
         <Entries entries={entries} />
         <Recommend banners={banners} recommend={recommend} />
 
-        <Link to={"/details"}>toDetails</Link>
+        <div className={styles.shopListTitle}>推荐商家</div>
+        <div className={styles.fifter}>
+          <div className={`${styles.fifterTabs} ${styles.flex}`}>
+            <div className={`${styles.tab} ${styles.flex1}`}>
+              <span>综合排序</span>
+              <IconSvg glyph={"dropDown"} className={styles.dropDown}  />
+            </div>
+            <div className={`${styles.tab} ${styles.flex1}`}>
+              <span>距离最近</span>
+            </div>
+            <div className={`${styles.tab} ${styles.flex1}`}>
+              <span>品质联盟</span>
+            </div>
+            <div className={`${styles.tab} ${styles.flex1}`}>
+              <span>筛选</span>
+              <IconSvg glyph={"fifter"} className={styles.fifterIcon} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

@@ -46,6 +46,7 @@ module.exports = {
 
       {
         test: /\.(png|svg|jpg|gif)$/,
+        exclude: path.resolve(__dirname, "./src/img/svg"),
         use: {
           loader: "url-loader",
           options: {
@@ -65,9 +66,17 @@ module.exports = {
               "@babel/plugin-transform-runtime",
               "@babel/plugin-syntax-dynamic-import",
               "@babel/plugin-proposal-class-properties",
-              ["@babel/plugin-proposal-decorators", { "legacy": true }]
+              ["@babel/plugin-proposal-decorators", { legacy: true }]
             ]
           }
+        }
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-sprite-loader",
+        include: path.resolve(__dirname, "./src/img/svg"), // 只带自己人玩
+        options: {
+          symbolId: `icons_[name]`
         }
       }
     ]
