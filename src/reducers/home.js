@@ -6,7 +6,8 @@ const initialState = Immutable.fromJS({
   loading: false,
   entries: [],
   recommend: [],
-  banners:[]
+  banners:[],
+  restaurants:[]
 });
 
 export default createReducer(initialState, {
@@ -28,5 +29,10 @@ export default createReducer(initialState, {
     state.merge({
       loading: false,
       banners: action.banners
-    })
+    }),
+    [types.RECEIVE_RESTAURANTS_INFO]: (state, action) =>
+    state.merge({
+      loading: false,
+      restaurants: action.restaurants
+    }),
 });

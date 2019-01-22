@@ -17,7 +17,8 @@ const mapStateToProps = state => {
       loading: state.getIn(["home", "loading"]),
       entries: state.getIn(["home", "entries"]),
       recommend: state.getIn(["home", "recommend"]),
-      banners: state.getIn(["home", "banners"])
+      banners: state.getIn(["home", "banners"]),
+      restaurants:state.getIn(["home", "restaurants"]),
     }
   };
 };

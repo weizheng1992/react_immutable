@@ -1,5 +1,4 @@
 import Mock from "mockjs";
-
 // Mock.mock(/\/todoList.mock/, {
 let category = [
   "美食",
@@ -108,6 +107,51 @@ Mock.mock(/\/shopping\/v2\/banners.mock/, {
       {
         "id|+1": 1,
         "img|+1": banners
+      }
+    ]
+  },
+  message: "",
+  systemDate: new Date().getTime()
+});
+
+Mock.mock(/\/shopping\/v2\/restaurants.mock/, {
+  code: 1000,
+  data: {
+    "list|10": [
+      {
+        "id|+1": 1,
+        name: "@ctitle",
+        image: "@image('130x130')",
+        "rating|1-5.1": 1,
+        "recent_order_num|1-2000": 1,
+        "float_minimum_order_amount|0-50": 1,
+        "float_delivery_fee|0-10": 1,
+        "distance|1-2000": 1,
+        "order_lead_time|1-40": 1,
+        "support_tags|1-2": [{ "id|+1": 1, name: "@ctitle(3,4)" }],
+        recommend: {
+          color: "#e8470b",
+          reason: "口碑人气好店",
+          image: "@image('20x20','#e8470b')"
+        },
+        "activities|1-5": [
+          {
+            "id|+1": 199999,
+            icon_name: "减",
+            tips: "@ctitle()",
+            icon_color: "f07373",
+            description: "@csentence(5, 20)"
+          }
+        ],
+        "supports|1-2": [
+          {
+            icon_name: "保",
+            "id|+1": 1,
+            tips: "@ctitle()",
+            icon_color: "999999",
+            description: "@csentence(5, 20)"
+          }
+        ]
       }
     ]
   },

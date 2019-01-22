@@ -31,3 +31,10 @@ export function receiveBannersInfo(banners) {
     banners
   };
 }
+
+export function receiveRestaurantsInfo(restaurants) {
+  return {
+    type: types.RECEIVE_RESTAURANTS_INFO,
+    restaurants
+  };
+}

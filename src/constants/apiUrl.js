@@ -16,4 +16,5 @@ export const HOME={
     entries:postApi("/shopping/v2/entries", mock),
     recommend:postApi("/shopping/v2/recommend", mock),
     banners:postApi("/shopping/v2/banners", mock),
+    restaurants:postApi("/shopping/v2/restaurants", mock),
 }
