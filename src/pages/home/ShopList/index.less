@@ -1,0 +1,514 @@
+
+//shopList
+
+.shopList {
+    background-color: #fff;
+    .shopBox {
+      position: relative;
+      border-bottom: 0.013333rem solid #eee;
+      border-bottom: 0.133333vw solid #eee;
+      background-color: #fff;
+      color: #666;
+      padding: 0.4rem 0;
+      padding: 4vw 0;
+      list-style: none;
+      font-size: 0.293333rem;
+      line-height: normal;
+      .shopInfo {
+        display: -webkit-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-justify-content: flex-start;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+        -webkit-align-items: stretch;
+        -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+        align-items: stretch;
+        padding: 0 0.266667rem;
+        padding: 0 2.666667vw;
+        .logoContainer {
+          position: relative;
+          -webkit-flex: none;
+          -webkit-box-flex: 0;
+          -ms-flex: none;
+          flex: none;
+          z-index: 0;
+  
+          .logoMain {
+            position: relative;
+            width: 1.733333rem;
+            width: 17.333333vw;
+            height: 1.733333rem;
+            height: 17.333333vw;
+            .logoLogo {
+              -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+              display: block;
+              width: 100%;
+              height: 100%;
+              border-radius: 0.053333rem;
+              border-radius: 0.533333vw;
+              border: 0.013333rem solid rgba(0, 0, 0, 0.08);
+              border: 0.133333vw solid rgba(0, 0, 0, 0.08);
+            }
+          }
+        }
+        .indexMain {
+          display: -webkit-flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-justify-content: space-between;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          overflow: hidden;
+          -webkit-flex-grow: 1;
+          -webkit-box-flex: 1;
+          -ms-flex-positive: 1;
+          flex-grow: 1;
+          -webkit-flex-direction: column;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+          flex-direction: column;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          padding-left: 0.266667rem;
+          padding-left: 2.666667vw;
+          .indexLine {
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-justify-content: space-between;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            overflow: hidden;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            h3 {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              margin: 0;
+              padding: 0;
+              color: #333;
+              font-weight: 700;
+              font-size: 0.4rem;
+              overflow: hidden;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              span {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+              }
+            }
+            ul {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              margin-left: 0.266667rem;
+              margin-left: 2.666667vw;
+              .indexOmit {
+                margin-left: 0.266667rem;
+                margin-left: 2.666667vw;
+                padding: 0 0.133333rem;
+                padding: 0 1.333333vw;
+              }
+            }
+  
+            .indexRateWarp {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              .RatingWarp {
+                position: relative;
+                overflow: hidden;
+                display: inline-block;
+                vertical-align: middle;
+                margin-right: 0.106667rem;
+                margin-right: 1.066667vw;
+                .ratingGray {
+                  display: -webkit-flex;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                }
+                .ratingActive {
+                  display: -webkit-flex;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  overflow: hidden;
+                }
+                img {
+                  width: 1.493333rem;
+                  width: 14.933333vw;
+                  height: 0.266667rem;
+                  height: 2.666667vw;
+                  -webkit-flex: none;
+                  -webkit-box-flex: 0;
+                  -ms-flex: none;
+                  flex: none;
+                  max-width: none;
+                }
+              }
+              .indexRate {
+                margin-right: 0.106667rem;
+                margin-right: 1.066667vw;
+              }
+            }
+            .indexDelivery {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              .deliverIcon {
+                position: relative;
+                padding: 0 0.04rem;
+                padding: 0 0.4vw;
+                color: transparent;
+                white-space: nowrap;
+                font-size: 0.266667rem;
+                border: 0.013333rem solid transparent;
+                border: 0.133333vw solid transparent;
+                border-radius: 0.04rem;
+                border-radius: 0.4vw;
+                line-height: 1.2;
+                margin-left: 0.106667rem;
+                margin-left: 1.066667vw;
+                &::after {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  z-index: 0;
+                  white-space: nowrap;
+                  content: attr(content);
+                  font-size: 0.113773rem;
+                  font-size: 0.533333rem;
+                  padding: 0 0.011373rem;
+                  padding: 0 0.113733vw;
+                  padding: 0 0.053333rem;
+                  padding: 0 0.533333vw;
+                  border-radius: 0.017067rem;
+                  border-radius: 0.170667vw;
+                  border-radius: 0.08rem;
+                  border-radius: 0.8vw;
+                  -webkit-transform: scale(0.5);
+                  transform: scale(0.5);
+                  -webkit-transform-origin: 0 0;
+                  transform-origin: 0 0;
+                  color: #fff;
+                  border: 0.013333rem solid #0097ff;
+                  border: 0.133333vw solid #0097ff;
+                  background-image: -webkit-linear-gradient(45deg, #0085ff, #0af);
+                  background-image: linear-gradient(45deg, #0085ff, #0af);
+                }
+              }
+            }
+            .IndexMoneylimit {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-content: center;
+              -ms-flex-line-pack: center;
+              align-content: center;
+              span {
+                &:nth-of-type(2) {
+                  overflow: hidden;
+                  max-width: 2.666667rem;
+                  max-width: 26.666667vw;
+                  text-overflow: ellipsis;
+                  white-space: nowrap;
+                  &::before {
+                    margin: 0 0.017067rem;
+                    margin: 0 0.170667vw;
+                    margin: 0 0.08rem;
+                    margin: 0 0.8vw;
+                    color: #ddd;
+                    content: "|";
+                  }
+                }
+              }
+            }
+            .indexTimedistanceWrap {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              color: #999;
+              .indexDistanceWrap {
+                &::after {
+                  margin: 0 0.017067rem;
+                  margin: 0 0.170667vw;
+                  margin: 0 0.08rem;
+                  margin: 0 0.8vw;
+                  color: #ddd;
+                  content: "|";
+                }
+              }
+            }
+          }
+        }
+      }
+      .indexActivityWrap {
+        padding-left: 2.266667rem;
+        padding-left: 22.666667vw;
+        .indexTagLine {
+          display: -webkit-flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+          -webkit-align-items: center;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          margin: 0.266667rem 0.266667rem 0 0;
+          margin: 2.666667vw 2.666667vw 0 0;
+          .miniTagTag {
+            position: relative;
+            font-size: 0.266667rem;
+            color: transparent;
+            white-space: nowrap;
+          }
+          >span {
+            margin-right: 0.133333rem;
+            margin-right: 1.333333vw;
+            margin-bottom: 0.106667rem;
+            margin-bottom: 1.066667vw;
+          }
+          .indexTag {
+            padding: 0 0.106667rem;
+            padding: 0 1.066667vw;
+            .miniTagGhost {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              -webkit-justify-content: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              position: absolute;
+              left: 0;
+              top: 0;
+              right: -100%;
+              bottom: -100%;
+              -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+              -webkit-transform-origin: 0 0;
+              transform-origin: 0 0;
+              font-size: 0.533333rem;
+            }
+            .indexTagGhost {
+              border: 0.026667rem solid #ddd;
+              border: 0.266667vw solid #ddd;
+              border-radius: 0.053333rem;
+              border-radius: 0.533333vw;
+              padding: 0 0.213333rem;
+              padding: 0 2.133333vw;
+            }
+          }
+          .indexRecommendTag {
+            display: -webkit-flex;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-align-items: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border-radius: 0.013333rem;
+            border-radius: 0.133333vw;
+            font-size: 0.266667rem;
+            color: #666;
+            height: 0.4rem;
+            height: 4vw;
+            padding: 0 0.106667rem;
+            padding: 0 1.066667vw;
+            color: #e8470b;
+            img {
+              margin-top: 0.04rem;
+              margin-top: 0.4vw;
+              height: 0.266667rem;
+              height: 2.666667vw;
+              width: 0.266667rem;
+              width: 2.666667vw;
+              margin-right: 0.08rem;
+              margin-right: 0.8vw;
+            }
+          }
+        }
+        .dashedline {
+          width: 100%;
+          height: 0.013333rem;
+          height: 0.133333vw;
+          padding-right: 0.266667rem;
+          padding-right: 2.666667vw;
+        }
+        .indexActivities {
+          display: -webkit-flex;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          position: relative;
+          -webkit-justify-content: space-between;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          -webkit-align-content: stretch;
+          -ms-flex-line-pack: stretch;
+          align-content: stretch;
+          overflow: hidden;
+          .indexActivityList {
+            -webkit-flex: 1;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            padding-right: 0.266667rem;
+            padding-right: 2.666667vw;
+            overflow: hidden;
+            .indexActRow {
+              display: -webkit-flex;
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-align-items: center;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              font-size: 0.293333rem;
+              line-height: 0.48rem;
+              line-height: 4.8vw;
+              .indexIconWrap {
+                display: inline-block;
+                position: relative;
+                margin-right: 0.16rem;
+                margin-right: 1.6vw;
+                height: 0.373333rem;
+                height: 3.733333vw;
+                width: 0.373333rem;
+                width: 3.733333vw;
+                vertical-align: middle;
+                .indexIcon {
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  z-index: 0;
+                  height: 0.746667rem;
+                  height: 7.466667vw;
+                  width: 0.746667rem;
+                  width: 7.466667vw;
+                  font-size: 0.56rem;
+                  color: #fff;
+                  display: -webkit-flex;
+                  display: -webkit-box;
+                  display: -ms-flexbox;
+                  display: flex;
+                  -webkit-align-items: center;
+                  -webkit-box-align: center;
+                  -ms-flex-align: center;
+                  align-items: center;
+                  -webkit-justify-content: center;
+                  -webkit-box-pack: center;
+                  -ms-flex-pack: center;
+                  justify-content: center;
+                  border-radius: 0.106667rem;
+                  border-radius: 1.066667vw;
+                  -webkit-transform: scale(0.5);
+                  transform: scale(0.5);
+                  -webkit-transform-origin: 0 0;
+                  transform-origin: 0 0;
+                }
+              }
+              .indexDesc {
+                display: inline-block;
+                -webkit-flex: 1;
+                -webkit-box-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                vertical-align: middle;
+              }
+            }
+          }
+          .indexActivityBtn {
+            padding: 0.08rem 0.266667rem 0 0;
+            padding: 0.8vw 2.666667vw 0 0;
+            color: #999;
+            text-align: right;
+            font-size: 0.266667rem;
+            line-height: 1;
+            span {
+              vertical-align: middle;
+            }
+            img {
+              width: 0.173333rem;
+              width: 1.733333vw;
+              opacity: 0.9;
+              margin-left: 0.106667rem;
+              margin-left: 1.066667vw;
+              -webkit-transition: all 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
+              -webkit-transform: rotate(0deg);
+              transform: rotate(0deg);
+              fill: currentColor;
+              will-change: transform;
+              vertical-align: middle;
+              position: relative;
+              z-index: 1;
+              &.indexOpen{
+                -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  

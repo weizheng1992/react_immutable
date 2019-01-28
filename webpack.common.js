@@ -92,10 +92,10 @@ module.exports = {
       name: true,
       cacheGroups: {
         vendor: {
-          chunks: "all",
+          chunks: "initial",
           test: /[\\/]node_modules[\\/]/,
           minChunks: 1,
-          priority: 100,
+          priority: 10,
           minSize: 0
         },
         common: {

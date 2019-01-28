@@ -26,8 +26,11 @@ export default class DefaultImage extends React.Component {
 
   render() {
     let { src, loading } = this.state;
+    const { className, alt}=this.props;
     return (
       <img
+        alt={alt}
+        className={className}
         src={src}
         onLoad={this.handleImageLoaded.bind(this)}
         onError={this.handleImageErrored.bind(this)}
