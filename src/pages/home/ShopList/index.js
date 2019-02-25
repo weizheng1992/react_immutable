@@ -3,8 +3,6 @@ import {
   InfiniteLoader,
   AutoSizer,
   List,
-  CellMeasurer,
-  CellMeasurerCache,
   WindowScroller
 } from "react-virtualized";
 import ReactHeight from "react-height";
@@ -17,10 +15,7 @@ export default class ShopList extends React.PureComponent {
       restaurants: this.props.restaurants,
       heights: []
     };
-    this.measureCache = new CellMeasurerCache({
-      defaultHeight: 300,
-      fixedWidth: true
-    });
+
     this.heights = [];
   }
   componentWillReceiveProps(nextProps) {
@@ -63,6 +58,10 @@ export default class ShopList extends React.PureComponent {
             )}
           </InfiniteLoader>
         )}
+        <div className={styles.LoadMoreWrapper}>
+          <div className={styles.LoadMoreLoading} />
+          <span>正在加载……</span>
+        </div>
       </section>
     );
   }
@@ -112,18 +111,6 @@ export default class ShopList extends React.PureComponent {
           <ShopBox item={restaurants[index]} key={key} />
         </ReactHeight>
       </div>
-    );
-    return (
-      <CellMeasurer
-        cache={this.measureCache}
-        columnIndex={0}
-        key={key}
-        parent={parent}
-        rowIndex={index}
-        style={style}
-      >
-        <ShopBox item={restaurants[index]} />
-      </CellMeasurer>
     );
   };
 }
