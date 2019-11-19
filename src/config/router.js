@@ -1,15 +1,18 @@
 import { Route } from "react-router-dom";
+// import CacheRoute, { CacheSwitch } from "react-router-cache-route";
+import MyLoadable from "../until/MyLoadable";
 
-import asyncComponent from "../until/AsyncComponent";
+// import asyncComponent from "../until/AsyncComponent";
 
-const Home = asyncComponent(() =>
-  import(/* webpackChunkName: "details" */ "../containers/HomeContainer")
-);
-// import(/* webpackChunkName: "home" */ "../pages/home")
 
-const Details = asyncComponent(() =>
-  import(/* webpackChunkName: "details" */ "../pages/details")
-);
+const Home = MyLoadable({
+  loader: () => import(/* webpackChunkName: "details" */ "../containers/HomeContainer")
+});
+
+
+const Details = MyLoadable({
+  loader: () => import(/* webpackChunkName: "details" */ "../pages/details")
+});
 
 
 const routes = [
@@ -21,7 +24,7 @@ const routes = [
     path: "/details",
     component: Details
   },
-  
+
 ];
 
 const router = () =>

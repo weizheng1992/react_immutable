@@ -1,13 +1,12 @@
-
-.modal{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
-    z-index: 6666;
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 6666;
 }
+
 .spinner {
   margin: 100px auto;
   width: 40px;
@@ -17,12 +16,12 @@
   left: 45%;
 }
 
-.container1 > div,
-.container2 > div,
-.container3 > div {
+.container1>div,
+.container2>div,
+.container3>div {
   width: 8px;
   height: 8px;
-  background-color: #fff;
+  background-color: #EC3D52;
 
   border-radius: 100%;
   position: absolute;
@@ -54,14 +53,17 @@
   top: 0;
   left: 0;
 }
+
 .circle2 {
   top: 0;
   right: 0;
 }
+
 .circle3 {
   right: 0;
   bottom: 0;
 }
+
 .circle4 {
   left: 0;
   bottom: 0;
@@ -129,25 +131,58 @@
 }
 
 @-webkit-keyframes bouncedelay {
+
   0%,
   80%,
   100% {
     -webkit-transform: scale(0);
   }
+
   40% {
     -webkit-transform: scale(1);
   }
 }
 
 @keyframes bouncedelay {
+
   0%,
   80%,
   100% {
     transform: scale(0);
     -webkit-transform: scale(0);
   }
+
   40% {
     transform: scale(1);
     -webkit-transform: scale(1);
+  }
+}
+
+
+.loadingCompoent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  .error {
+    margin-bottom: 12px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  button {
+    background-color: #EC3D52;
+    color: #fff;
+    border: 0;
+    padding: 10px 20px;
+    border-radius: 5px;
+
   }
 }

@@ -1,12 +1,8 @@
 import styles from "./index.less";
-export default class Loading extends React.Component {
+class Loading extends React.Component {
   render() {
-    const { visible } = this.props;
     return (
-      <div
-        className={styles.modal}
-        style={{ display: visible ? "block" : "none" }}
-      >
+      <div className={styles.modal}>
         <div className={styles.spinner}>
           <div className={`${styles.spinneContainer} ${styles.container1}`}>
             <div className={styles.circle1} />
@@ -31,3 +27,28 @@ export default class Loading extends React.Component {
     );
   }
 }
+
+const LoadingComponent = props => {
+  console.log(props);
+  if (props.error) {
+    return (
+      <div className={styles.loadingCompoent}>
+        <div className={styles.error}>加载错误</div>
+        <button onClick={() => window.location.reload()}>重新加载</button>
+      </div>
+    );
+  } else if (props.timedOut) {
+    return (
+      <div className={styles.loadingCompoent}>
+        <div className={styles.error}>加载超时</div>
+        <button onClick={() => window.location.reload()}>重新加载</button>
+      </div>
+    );
+  } else if (props.pastDelay) {
+    return <Loading />;
+  } else {
+    return null;
+  }
+};
+
+export default LoadingComponent;

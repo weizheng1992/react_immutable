@@ -3,7 +3,7 @@ import IconSvg from "../../../component/iconSvg";
 export default class Fifter extends React.Component {
   render() {
     return (
-      <div style={{ position: "sticky", top: "100px", zIndex: 100 }}>
+      <div style={{ position: "sticky", top: "1.35rem", zIndex: 100 }}>
         <div className={styles.fifter}>
         <div className={styles.fifterHeader}>
 
