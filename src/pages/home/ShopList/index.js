@@ -3,11 +3,11 @@ import {
   InfiniteLoader,
   AutoSizer,
   List,
-  WindowScroller
+  WindowScroller,
+  CellMeasurer, CellMeasurerCache
 } from "react-virtualized";
-import ReactHeight from "react-height";
 import ShopBox from "./ShopBox";
-
+const cache = new CellMeasurerCache({ minHeight: 30, fixedWidth: true });
 export default class ShopList extends React.PureComponent {
   constructor(props) {
     super(props);
@@ -25,28 +25,30 @@ export default class ShopList extends React.PureComponent {
   }
   render() {
     console.log(this.state.restaurants, "__________________");
+    const { restaurants } = this.state
     return (
       <section className={styles.shopList}>
         {this.state.restaurants.size == 0 ? null : (
           <InfiniteLoader
             isRowLoaded={this._isRowLoaded}
             loadMoreRows={this._loadMoreRows}
-            rowCount={10}
+            rowCount={50}
           >
             {({ onRowsRendered, registerChild }) => (
               <WindowScroller>
                 {({ height, isScrolling, scrollTop }) => (
+
                   <AutoSizer disableHeight>
                     {({ width }) => (
                       <List
-                        // ref={registerChild}
-                        ref={ref => (this.list = ref)}
+                        ref={registerChild}
+                        // ref={ref => (this.list = ref)}
                         className={styles.List}
                         autoHeight
                         height={height}
                         onRowsRendered={onRowsRendered}
-                        rowHeight={this._getRowHeight}
-                        rowCount={10}
+                        rowHeight={cache.rowHeight}
+                        rowCount={restaurants.length}
                         rowRenderer={this._cellRenderer}
                         width={width}
                         scrollTop={scrollTop}
@@ -66,25 +68,16 @@ export default class ShopList extends React.PureComponent {
     );
   }
 
-  handleHeightReady = (height, index) => {
-    this.heights = [
-      ...this.heights,
-      {
-        index,
-        height
-      }
-    ];
-    this.setState(
-      {
-        heights: this.heights
-      },
-      this.list.recomputeRowHeights(index)
-    );
-  };
+  loadDummyItems = number => {
 
-  _getRowHeight = ({ index }) => {
-    const row = this.heights.find(item => item.index === index);
-    return row ? row.height : 100;
+    const rooms = [];
+    for (let i = 0; i < number; i++) {
+      rooms.push(this.state.restaurants[i]);
+    }
+
+    return new Promise(resolve => {
+      setTimeout(resolve(rooms), 600);
+    });
   };
 
   _isRowLoaded = ({ index }) => {
@@ -92,6 +85,14 @@ export default class ShopList extends React.PureComponent {
   };
 
   _loadMoreRows = ({ startIndex, stopIndex }) => {
+    console.log('load')
+    const { restaurants } = this.state
+    if (restaurants.length > 100) {
+      return Promise.resolve();
+    }
+
+    return this.loadDummyItems(10).then(items => this.setState({ restaurants: [...restaurants, ...items] }));
+
     //请求 数据
     // return fetch(`path/to/api?startIndex=${startIndex}&stopIndex=${stopIndex}`)
     // .then(response => {
@@ -104,13 +105,18 @@ export default class ShopList extends React.PureComponent {
     // return  <ShopBox item={restaurants[index]} key={key} />
 
     return (
-      <div key={key} style={style}>
-        <ReactHeight
-          onHeightReady={height => this.handleHeightReady(height, index)}
-        >
-          <ShopBox item={restaurants[index]} key={key} />
-        </ReactHeight>
-      </div>
+
+      <CellMeasurer
+        cache={cache}
+        columnIndex={0}
+        key={key}
+        parent={parent}
+        rowIndex={index}
+      >
+        <div style={style}>
+          <ShopBox item={restaurants[index]} />
+        </div>
+      </CellMeasurer >
     );
   };
 }
