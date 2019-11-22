@@ -3,6 +3,7 @@ import { Provider } from "react-redux";
 import App from "./config/router";
 // import 'nprogress/nprogress.css'
 import "./index.css";
+import 'lib-flexible'
 import weChat from "./until/weChat";
 import configureStore from "./store";
 import moment from "moment";

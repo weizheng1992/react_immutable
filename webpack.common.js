@@ -29,16 +29,26 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                mode: 'local',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+                context: path.resolve(__dirname, 'src'),
+              },
               importLoaders: 1,
-              localIdentName: "[local]"
+              localsConvention: 'asIs'
+            }
+          }, {
+            loader: 'px2rem-loader',
+            options: {
+              remUnit: 75,
+              remPrecision: 8
             }
           },
           {
             loader: "less-loader",
-            options: {
-              sourceMap: true
-            }
+            // options: {
+            //   sourceMap: true
+            // }
           },
           {
             loader: "postcss-loader"
@@ -52,7 +62,7 @@ module.exports = {
         use: {
           loader: "url-loader",
           options: {
-            limit: 1024*5,
+            limit: 1024 * 5,
             outputPath: "img"
           }
         }
@@ -115,7 +125,7 @@ module.exports = {
     minimizer: [
       new TerserPlugin({
         cache: true,
-        parallel: true,
+        parallel: 4,
         terserOptions: {
           compress: {
             // drop_console: true
@@ -151,12 +161,13 @@ module.exports = {
         process.env.NODE_ENV === "development"
           ? false
           : {
+            minifyCSS: true,
+            minifyJS: true,
             removeComments: true, //移除HTML中的注释
             collapseWhitespace: true, //折叠空白区域 也就是压缩代码
             removeAttributeQuotes: true //去除属性引用
           }
     }),
-
     new webpack.ProvidePlugin({
       React: "react",
       ReactDOM: "react-dom",
@@ -166,7 +177,10 @@ module.exports = {
       manifest: path.resolve(__dirname, ".", "dist", "manifest.json")
     }),
     new PurifyCssWebpack({
-      paths: glob.sync(path.join(__dirname, "src/*.html"))
+      paths: glob.sync([ // 传入多文件路径
+        path.resolve(__dirname, './*.html'), // 处理根目录下的html文件
+        path.resolve(__dirname, './src/*.js') // 处理src目录下的js文件
+      ])
     }),
     new CleanWebpackPlugin(["dist"], {
       root: path.join(__dirname, "."),
